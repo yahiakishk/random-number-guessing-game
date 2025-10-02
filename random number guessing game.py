@@ -12,15 +12,18 @@ while True:
     if guess.isdigit():
         guess = int(guess)
         if guess == answer:
-            print(f"Congrats you picked the right number with {guesses} wrong attempts")
+            print(
+                f"Congrats you picked the right number with {guesses} wrong attempts")
             restart = input("Do you want to restart (y/n): ").lower()
             if restart != ("y"):
                 print("Goodbye!")
                 break
+        elif guess < lowest or guess > highest:
+            print("Number is is out of range, please try again")
         elif guess < answer:
             print("Your guess was lower than the number. Try again: ")
             guesses += 1
-        elif guess > answer:
+        else:
             print("Your guess was higher than the number. Try again: ")
             guesses += 1
 
